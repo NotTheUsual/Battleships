@@ -20,7 +20,6 @@ class Board
 	end
 
 	def add_a_ship length
-
 		x, y, direction = random_start
 		while !is_water_clear?(length, [x,y], direction)
 			x, y, direction = random_start
@@ -29,7 +28,6 @@ class Board
 	end
 
 	def populate
-
 		add_a_ship 5
 		add_a_ship 4
 		add_a_ship 3
@@ -38,7 +36,7 @@ class Board
 	end
 
 	def clear
-			@rows = @rows.map {|a| a.map {|cell| " "}}
+		@rows = @rows.map {|a| a.map {|cell| " "}}
 	end
 
 	def random_start
@@ -139,9 +137,8 @@ class Board
 
 	def is_north_clear? ship_length, x, y, ship
 		ship.inject([]) do |array, co| 
-				y -= 1
-				@rows[y+1].nil? ? array << "nil" : array << @rows[y+1][x]
-			end
+			y -= 1
+			@rows[y+1].nil? ? array << "nil" : array << @rows[y+1][x]
+		end
 	end
-
 end
